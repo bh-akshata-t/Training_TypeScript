@@ -56,7 +56,7 @@ const gradeData: Record<Students, Grades> = {
     Shruti: { assign1: 76, assign2: 15 },
 }
 
-// Pick and Omit 
+// Pick: Constructs a type by picking the set of properties Keys (string literal or union of string literals) from Type.:: Omit::Constructs a type by picking all properties from Type and then removing Keys (string literal or union of string literals). The opposite of Pick.
 
 type AssignResult = Pick<Assignment, "studentId" | "grade">
 
@@ -71,18 +71,18 @@ const preview: AssignPreview = {
     studentId: "k123",
     title: "Final Project",
 }
-// Exclude and Extract 
+// Exclude Constructs a type by excluding from UnionType all union members that are assignable to ExcludedMembers. and Extract ;:Constructs a type by extracting from Type all union members that are assignable to Union.
 
 type adjustedGrade = Exclude<LetterGrades, "U">
 
 type highGrades = Extract<LetterGrades, "A" | "B">
 
-// Nonnullable 
+// Nonnullable : Constructs a type by excluding null and undefined from Type.
 
 type AllPossibleGrades = 'Dave' | 'John' | null | undefined
 type NamesOnly = NonNullable<AllPossibleGrades>
 
-// ReturnType 
+// ReturnType : Constructs a type consisting of the return type of function Type.
 
 //type newAssign = { title: string, points: number }
 
@@ -95,7 +95,7 @@ type NewAssign = ReturnType<typeof createNewAssign>
 const tsAssign: NewAssign = createNewAssign("Utility Types", 100)
 console.log(tsAssign)
 
-// Parameters 
+// Parameters : Constructs a tuple type from the types used in the parameters of a function type Type.
 
 type AssignParams = Parameters<typeof createNewAssign>
 
